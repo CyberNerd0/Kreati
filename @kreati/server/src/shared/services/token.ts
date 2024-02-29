@@ -7,7 +7,7 @@ namespace TokenServive {
     username: string;
   };
 
-  export async function generateAccessToken(user: IUser) {
+  export async function generateAccessToken(user: IUser.Selectable) {
     return jwt.sign(
       {
         username: user.username
