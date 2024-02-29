@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "noEmit": true
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "build",
+    "node_modules"
+  ],
+  "module": "ES2020",
+  "target": "CommonJS",
+  "moduleResolution": "node",
+  "references": [
+    {
+      "path": "../../tsconfig.json"
+    }
+  ],
+  "extends": "../../tsconfig.json"
+}
