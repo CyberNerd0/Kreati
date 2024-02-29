@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { UserSchema } from "../database/models/user";
+import { IUser } from "../database/models/user";
 import config from "../config";
 
 namespace TokenServive {
@@ -7,7 +7,7 @@ namespace TokenServive {
     username: string;
   };
 
-  export async function generateAccessToken(user: UserSchema) {
+  export async function generateAccessToken(user: IUser.Selectable) {
     return jwt.sign(
       {
         username: user.username

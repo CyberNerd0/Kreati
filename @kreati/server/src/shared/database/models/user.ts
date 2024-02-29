@@ -1,16 +1,22 @@
-import { prop, getModelForClass } from "@typegoose/typegoose"
+import { Schema, model, HydratedDocument, ObjectId } from "mongoose"
 
-export class UserSchema {
-  @prop()
-  public privateKey!: string
+export namespace IUser {
+  export type Insertable = {
+    address: string
+    username: string
+    profilePicture?: string
+    creatorId: ObjectId
+  }
 
-  @prop()
-  public username!: string
+  export type Updateable = Partial<Insertable>
 
-  @prop()
-  public profilePicture?: string
+  export type Selectable = HydratedDocument<Insertable>
 }
 
-export const User = getModelForClass(UserSchema)
+const UserSchema = new Schema({
+  address: String,
+  username: String,
+  profilePicture: { type: String, required: false }
+})
 
-export default User 
+export const User = model<IUser.Insertable>("User", UserSchema)

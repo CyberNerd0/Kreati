@@ -1,13 +1,12 @@
 import { MiddlewareHandler } from "hono"
-import { HydratedDocument } from "mongoose"
-import User, { UserSchema } from "@kreati/server/shared/database/models/user"
+import { User, IUser } from "@kreati/server/shared/database/models/user"
 import { APIError } from "../utils/error"
 import { StatusCodes } from "http-status-codes"
 import TokenService from "@kreati/server/shared/services/token"
 
 export const JwtMiddleware: MiddlewareHandler<{
   Variables: {
-    user: HydratedDocument<UserSchema>
+    user: IUser.Selectable
   }
 }> = async (c, next) => {
   const authHeader = c.req.header("authorization")

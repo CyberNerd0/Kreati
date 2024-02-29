@@ -5,6 +5,6 @@ import { logger } from "hono/logger"
 
 const app = new Hono()
   .use(logger())
-  .route("/", router)
+  .route("/api", router)
 
 export default app

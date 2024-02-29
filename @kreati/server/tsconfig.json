@@ -10,9 +10,8 @@
     "build",
     "node_modules"
   ],
-  "module": "ES2020",
-  "target": "CommonJS",
-  "moduleResolution": "node",
+  "module": "ESNext",
+  "moduleResolution": "Bundler",
   "references": [
     {
       "path": "../../tsconfig.json"
