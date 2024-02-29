@@ -2,7 +2,7 @@
 	"name": "kreati",
 	"scripts": {
 		"server:dev": "dotenv -- pnpm --filter @kreati/server dev",
-		"lint": "tsc --build @kreati/tsconfig.json"
+		"lint": "tsc --build"
 	},
 	"devDependencies": {
 		"dotenv-cli": "^7.3.0",

@@ -1,16 +1,15 @@
-import { prop, getModelForClass } from "@typegoose/typegoose"
+import { Schema, model } from "mongoose"
 
-export class UserSchema {
-  @prop()
-  public privateKey!: string
-
-  @prop()
-  public username!: string
-
-  @prop()
-  public profilePicture?: string
+export interface IUser {
+  address: string
+  username: string
+  profilePicture?: string
 }
 
-export const User = getModelForClass(UserSchema)
+const UserSchema = new Schema({
+  address: String,
+  username: String,
+  profilePicture: { type: String, required: false }
+})
 
-export default User 
+export const User = model("User", UserSchema)

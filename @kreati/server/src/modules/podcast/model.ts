@@ -1,26 +1,21 @@
-import { prop, getModelForClass } from "@typegoose/typegoose"
+import { Schema, model } from "mongoose"
 
-export class PodcastSchema {
-  @prop()
-  public name!: string
-
-  @prop()
-  public hasStarted!: boolean
-
-  @prop()
-  public timeElapsed?: number
-
-  @prop()
-  public scheduledDate?: boolean
-
-  @prop()
-  public creatorId!: string
-
-  @prop()
-  public coverPicture?: string
+export interface IPodcast {
+  name: string
+  hasStarted: boolean
+  timeElapsed?: number | null
+  scheduledDate?: boolean
+  creatorId: string
+  coverPicture: string | null
 }
 
-export const Podcast = getModelForClass(PodcastSchema)
+const PodcastSchema = new Schema({
+  name: String,
+  hasStarted: Boolean,
+  timeElapsed: { type: Number, required: false },
+  scheduledDate: { type: Date, required: false },
+  creatorId: String,
+  coverPicture: { type: String, required: false }
+})
 
-export default PodcastSchema
-
+export const Podcast = model("Podcast", PodcastSchema)

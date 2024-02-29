@@ -2,8 +2,8 @@ import { Hono } from "hono";
 import schema from "./schema"
 import { zValidator } from "@hono/zod-validator"
 import { Podcast } from "../model"
-import ServerResponse from "@kreati/server/src/shared/infrastructure/server/utils/response"
-import JwtMiddleware from "@kreati/server/src/shared/infrastructure/server/middleware/jwt"
+import ServerResponse from "@kreati/server/shared/infrastructure/server/utils/response"
+import JwtMiddleware from "@kreati/server/shared/infrastructure/server/middleware/jwt"
 
 export default new Hono()
   .get("/",
